@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as pyplot
 
 # create the x grid
-
 dx = 0.1
 x=np.arange(-10, 10+dx, dx)
 N=len(x)
@@ -49,12 +48,16 @@ for i in range(0, steps-1):
     k4 = np.dot(M,y[i] + k3*dt)
     y[i+1] = y[i]+dt*(k1 + 2*k2 + 2*k3 + k4)/6
 
-pyplot.plot(x,np.abs(y[0])**2)
-pyplot.plot(x,np.abs(y[100])**2)
-pyplot.plot(x,np.abs(y[200])**2)
-pyplot.plot(x,np.abs(y[300])**2)
-pyplot.plot(x,np.abs(y[400])**2)
-pyplot.plot(x,np.abs(y[500])**2)
-pyplot.plot(x,np.abs(y[1000])**2)
-pyplot.plot(x,np.abs(y[2000])**2)
+figure,axes = pyplot.subplots()
+axes.plot(x,np.abs(y[0])**2, label='t=0')
+axes.plot(x,np.abs(y[100])**2, label='t=100')
+axes.plot(x,np.abs(y[200])**2, label='t=200')
+axes.plot(x,np.abs(y[300])**2, label='t=300')
+axes.plot(x,np.abs(y[400])**2, label='t=400')
+axes.plot(x,np.abs(y[500])**2, label='t=500')
+axes.plot(x,np.abs(y[1000])**2, label='t=1000')
+axes.plot(x,np.abs(y[2000])**2, label='t=2000')
+axes.legend(loc='upper right', shadow=True, fontsize='x-large')
+axes.set_xlabel('x')
+axes.set_ylabel('|psi(x)|^2')
 pyplot.show()
