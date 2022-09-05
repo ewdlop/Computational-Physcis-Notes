@@ -6,7 +6,7 @@
 	open Microsoft.Quantum.Diagnostics;
 	open Microsoft.Quantum.Arrays;
 	open Microsoft.Quantum.Logical;
-	open Microsoft.Quantum.Math
+	open Microsoft.Quantum.Math;
 
 	operation EvolveUnderZ(
 		strength: Double,
